@@ -1,0 +1,35 @@
+.extra-margin {
+  margin: 50px 0px;
+}
+
+.center {
+  display: block;
+  margin: 15px auto;
+}
+
+.card {
+  margin: 15px;
+  padding: 15px;
+  box-shadow: 0px 0px 5px 0px grey;
+}
+
+.no-box-space {
+  margin: 15px;
+  padding: 15px;
+}
+
+.card-subtitle {
+  font-style: italic;
+  padding-bottom: 10px;
+}
+
+i.fas.fa-times-circle {
+  color: red;
+  position: relative;
+}
+
+span.badge.badge-pill.badge-info {
+  position: absolute;
+  top: 10px;
+  right: 145px;
+}

@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Pillow",
+      "price": 14.50
+    },
+    {
+      "id": 2,
+      "name": "Outdoor Gears",
+      "price": 10.50
+    },
+    {
+      "id": 3,
+      "name": "Oven Thermometer",
+      "price": 6.30
+    },
+    {
+      "id": 4,
+      "name": "USB Charger",
+      "price": 8.50
+    },
+    {
+      "id": 5,
+      "name": "Blanket",
+      "price": 70.15
+    },
+    {
+      "id": 6,
+      "name": "Sunglasses",
+      "price": 14.00
+    },
+    {
+      "id": 7,
+      "name": "Garden Lights",
+      "price": 25.50
+    },
+    {
+      "id": 8,
+      "name": "Screen Protector",
+      "price": 5.99
+    },
+    {
+      "id": 9,
+      "name": "Permanent Markers",
+      "price": 10.75
+    },
+    {
+      "id": 10,
+      "name": "Memory Cards",
+      "price": 15.99
+    },
+    {
+      "id": 11,
+      "name": "Air Compressor Pump",
+      "price": 32.99
+    },
+    {
+      "id": 12,
+      "name": "Ballpoint Pen",
+      "price": 7.14
+    },
+    {
+      "id": 13,
+      "name": "14-Food Container",
+      "price": 21.75
+    },
+    {
+      "id": 14,
+      "name": "Wall Charger",
+      "price": 12.99
+    }
+  ]
+}
