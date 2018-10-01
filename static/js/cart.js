@@ -1,34 +1,39 @@
 let cart = [];
-let products = [];
 
 // hide cart on load
 if (cart.length === 0) {
   $("#cart-table").css("display", "none");
 }
 
-// get product list
-function getProd(response) {
-  products = response.products;
-}
-
 // add item to cart
 function addToCart(id) {
-  // check if product already exists in cart
-  let item = cart.find(obj => { return obj.id === id});
+  $.get('./data/products.json', function(res) {
+    let products = res.products;
 
-  if (typeof item === "undefined") {
-    let product = products.find(obj => { return obj.id === id });
+    // check if product already exists in cart
+    let item = cart.find(obj => { return obj.id === id});
 
-    let new_item = {
-      "id" : product.id,
-      "name" : product.name,
-      "price" : product.price,
-      "quantity" : 1
+    if (typeof item === "undefined") {
+      let product = products.find(obj => { return obj.id === id });
+
+      let new_item = {
+        "id" : product.id,
+        "name" : product.name,
+        "price" : product.price,
+        "quantity" : 1
+      }
+
+      cart.push(new_item);
+    } else {
+      item.quantity += 1;
     }
-    cart.push(new_item);
-  } else {
-    item.quantity += 1;
-  }
+  });
+
+  // call showCart to update table
+  // Usage!
+  sleep(50).then(() => {
+    showCart();
+  });
 }
 
 // remove item from cart
@@ -39,6 +44,8 @@ function removeFromCart(id) {
   if (item.quantity === 0) {
     cart = cart.filter(obj => { return obj.id !== id});
   }
+
+  showCart();
 }
 
 // show current items in cart
@@ -75,17 +82,15 @@ $("#product-card").on("click", "button", function() {
   $("#cart-table").css("display", "");
 
   addToCart(id);
-  showCart();
 });
 
 // when icon 'Remove' clicked
 $("#cart-table").on("click", "i.fas.fa-times-circle", function() {
   let id = Number($(this).attr("data-id"));
   removeFromCart(id);
-  showCart();
 });
 
-
-url = '../data/products.json';
-
-$.get(url, getProd);
+// https://zeit.co/blog/async-and-await
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}

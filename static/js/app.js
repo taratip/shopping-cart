@@ -42,6 +42,6 @@ function showProd(response) {
   $("#product-card").html(card_html);
 }
 
-url = '../data/products.json';
+url = './data/products.json';
 
 $.get(url,showProd);
