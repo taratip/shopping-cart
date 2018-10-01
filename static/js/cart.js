@@ -1,6 +1,6 @@
 let cart = [];
 
-// hide cart on load
+// hide when no items in cart
 if (cart.length === 0) {
   $("#cart-table").css("display", "none");
 }
@@ -13,6 +13,7 @@ function addToCart(id) {
     // check if product already exists in cart
     let item = cart.find(obj => { return obj.id === id});
 
+    // if product not exist in cart
     if (typeof item === "undefined") {
       let product = products.find(obj => { return obj.id === id });
 
@@ -24,7 +25,7 @@ function addToCart(id) {
       }
 
       cart.push(new_item);
-    } else {
+    } else { // add quanity if product already exists
       item.quantity += 1;
     }
   });
@@ -50,6 +51,13 @@ function removeFromCart(id) {
 
 // show current items in cart
 function showCart() {
+  // hide if no item in cart
+  if (cart.length === 0) {
+    $("#cart-table").css("display", "none");
+  } else {
+    $("#cart-table").css("display", "");
+  }
+
   let cart_html = '';
   let total = 0;
   let total_quantity = 0;
